@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "sudo next dev",
-    "build": "sudo next build",
+    "build": "next build; yarn build:server",
     "start": "next start",
-    "dev:server": "yarn build:server; sudo node server.js",
+    "dev:server": "yarn build:server;node server.js",
     "build:server": "./node_modules/typescript/bin/tsc server.ts",
-    "start:server": "yarn build:server; yarn build; sudo NODE_ENV=production node server.js"
+    "start:server": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "koa": "^2.13.1",
