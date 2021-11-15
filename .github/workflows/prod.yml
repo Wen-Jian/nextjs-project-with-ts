@@ -27,6 +27,4 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
-          docker logout
-          docker login
           docker push $ECR_REPOSITORY:$IMAGE_TAG
