@@ -26,6 +26,5 @@ jobs:
           ECR_REPOSITORY: frontend_web
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          npx browserslist@latest --update-db
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REPOSITORY:$IMAGE_TAG
