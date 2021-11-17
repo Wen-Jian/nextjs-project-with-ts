@@ -30,10 +30,11 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: action/checout@master
+        uses: action/checkout@master
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
