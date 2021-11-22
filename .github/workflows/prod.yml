@@ -57,6 +57,9 @@ jobs:
       #   with:
       #     args: set image deployment/$ECR_REPOSITORY $ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       - name: deploy to eks
+        env:
+          aws-region: ${{ secrets.AWS_REGION }}
+          aws-eks-cluster-name: ${{ secrets.AWS_EKS_CLUSTER_NAME }}
         run: |
           curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl && \
           curl -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator && \
@@ -64,3 +67,4 @@ jobs:
           chmod +x ./kubectl && \
           export PATH=~/kubectl \
           kubectl
+          aws eks --region $aws-region update-kubeconfig --name $aws-eks-cluster-name
