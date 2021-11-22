@@ -66,5 +66,5 @@ jobs:
           chmod +x /usr/local/bin/aws-iam-authenticator && \
           chmod +x ./kubectl && \
           export PATH=~/kubectl && \
-          kubectl && \
+          ./kubectl && \
           aws eks --region $aws-region update-kubeconfig --name $aws-eks-cluster-name
