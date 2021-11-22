@@ -65,6 +65,6 @@ jobs:
           curl -o /usr/local/bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator && \
           chmod +x /usr/local/bin/aws-iam-authenticator && \
           chmod +x ./kubectl && \
-          export PATH=~/kubectl \
-          kubectl \
+          export PATH=~/kubectl && \
+          kubectl && \
           aws eks --region $aws-region update-kubeconfig --name $aws-eks-cluster-name
