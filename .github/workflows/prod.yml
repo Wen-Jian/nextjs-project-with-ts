@@ -1,4 +1,4 @@
-name: frontend_web
+name: frontend-web
 on:
   push:
     branch:
