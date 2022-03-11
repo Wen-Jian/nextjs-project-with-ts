@@ -1,14 +1,13 @@
 import { NextPage } from 'next';
 import React from 'react';
-import style from '~/styles/home.module.scss';
+import ImageProcessor from '~/components/imageProcessor';
 
 const Index: NextPage = () => {
-    return (
-        <>
-            <h3 className={`${style.title}`}>this is a demo site. V2</h3>
-            <div>With github workflow</div>
-        </>
-    );
+  return (
+    <>
+      <ImageProcessor />
+    </>
+  );
 };
 
 export default Index;
