@@ -15,11 +15,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION}}
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA_STAGING }}
-        run: | 
-          echo $aws-access-key-id
-          echo $aws-secret-access-key
-          echo $aws-region
-          echo $KUBE_CONFIG_DATA
+        run: |
+          echo $aws-access-key-id << test.text
+          cat ./test.text
+  #        echo $aws-secret-access-key
+  #        echo $aws-region
+  #        echo $KUBE_CONFIG_DATA
   #     - name: Set up Docker Buildx
   #       uses: docker/setup-buildx-action@v1
   #     - name: Configure AWS credentials
