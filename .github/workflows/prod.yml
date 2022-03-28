@@ -16,8 +16,8 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION}}
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA_STAGING }}
         run: |
-          echo $aws-access-key-id << test.text
-          cat ./test.text
+          echo $aws-access-key-id << test.txt
+          cat ./test.txt
   #        echo $aws-secret-access-key
   #        echo $aws-region
   #        echo $KUBE_CONFIG_DATA
