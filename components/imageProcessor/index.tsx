@@ -109,6 +109,7 @@ const ImageProcessor: FunctionComponent = () => {
 
   const handleMouseDown = useCallback(
     (e) => {
+      e.preventDefault();
       if (imgLoaded) {
         setIsDrawingLine(true);
       }
@@ -178,6 +179,10 @@ const ImageProcessor: FunctionComponent = () => {
 
   const handleMouseMove = useCallback(
     (e) => {
+      e.preventDefault();
+      if (!!e.targetTouches && e.targetTouches.length > 1) {
+        return;
+      }
       if (isDrawingLine) {
         if (!!OriginImgMatRef.current) {
           const bounds = e.currentTarget.getBoundingClientRect();
@@ -293,7 +298,10 @@ const ImageProcessor: FunctionComponent = () => {
   return (
     <div
       className={`flex-box just-content-center ${style['image-processor-wrapper']}`}
-      style={{ height: `max(100vh, ${imgHeight}px)` }}
+      style={{
+        height: `max(100vh, ${imgHeight}px)`,
+        touchAction: 'pinch-zoom',
+      }}
     >
       <div className={`${style.paper}`}>
         <input

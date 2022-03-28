@@ -3,6 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import style from './collapseButtonsStyle.module.scss';
 import Zoom from '@mui/material/Zoom';
+import Fade from '@mui/material/Fade';
 import LineWeightIcon from '@mui/icons-material/LineWeight';
 import { Paper } from '@mui/material';
 import { Box } from '@mui/system';
@@ -42,14 +43,21 @@ export const CollapseButtons = () => {
         <MoreHorizIcon fontSize="large" />
       </IconButton>
       <Zoom in={open} style={{ transitionDelay: open ? '100ms' : '0ms' }}>
-        <IconButton
-          onClick={toggleLineWeightSetting}
-          className={`${style['line-weight-control-button']} ${style['icon-button']}`}
+        <Box
+          className={`${style['line-weight-button-wrapper']} ${style['line-weight-button-wrapper_adjustment']}`}
         >
-          <LineWeightIcon fontSize="large" />
-        </IconButton>
+          <IconButton
+            onClick={toggleLineWeightSetting}
+            className={`${style['line-weight-control-button']} ${style['icon-button']}`}
+          >
+            <LineWeightIcon fontSize="large" />
+          </IconButton>
+        </Box>
       </Zoom>
-      <Zoom in={openLineWeightSetting}>
+      <Zoom
+        in={openLineWeightSetting}
+        style={{ transitionDelay: openLineWeightSetting ? '100ms' : '0ms' }}
+      >
         <Box className={style['line-weight-button-wrapper']}>
           {[1, 2, 3].map((num) => {
             return (
