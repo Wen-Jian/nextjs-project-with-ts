@@ -6,7 +6,7 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const handle = app.getRequestHandler();
 
-const port = 8080;
+const port = 80;
 app.prepare().then(() => {
   const server = new Koa();
   const router = new Router();
