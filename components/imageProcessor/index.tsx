@@ -199,6 +199,7 @@ const ImageProcessor: FunctionComponent = () => {
             return;
           }
           if (!resutltImgMatRef.current) {
+            // @ts-ignore: Window & typeof globalThis
             resutltImgMatRef.current = new cv.Mat();
             let temp = resutltImgMatRef.current;
             OriginImgMatRef.current.copyTo(temp);
@@ -252,6 +253,7 @@ const ImageProcessor: FunctionComponent = () => {
             return;
           }
           if (!resutltImgMatRef.current) {
+            // @ts-ignore: Window & typeof globalThis
             resutltImgMatRef.current = new cv.Mat();
             let temp = resutltImgMatRef.current;
             OriginImgMatRef.current.copyTo(temp);
