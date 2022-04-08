@@ -160,15 +160,18 @@ const ImageProcessor: FunctionComponent = () => {
   const handleMouseUp = useCallback(async () => {
     setIsDrawingLine(false);
     startPoint.current = [];
-    const result = await fetch('http://localhost:5000/inpaint_image', {
-      method: 'post',
-      body: JSON.stringify({
-        img_data: imgData,
-        paths: JSON.stringify(linePaths),
-        line_weight: lineWeight,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+    const result = await fetch(
+      'https://a248ddf59bf064e47ab364b64ddc128c-902905521.ap-northeast-1.elb.amazonaws.com/inpaint_image',
+      {
+        method: 'post',
+        body: JSON.stringify({
+          img_data: imgData,
+          paths: JSON.stringify(linePaths),
+          line_weight: lineWeight,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
     const { status } = result;
     if (status === 200 && !!imgRef.current) {
       const { img_data } = await result.json();
@@ -236,7 +239,6 @@ const ImageProcessor: FunctionComponent = () => {
 
   const handleTouchMove = useCallback(
     (e) => {
-      console.log(e.touches[0].clientX);
       if (isDrawingLine) {
         if (!!OriginImgMatRef.current) {
           const bounds = e.currentTarget.getBoundingClientRect();
