@@ -161,7 +161,7 @@ const ImageProcessor: FunctionComponent = () => {
     setIsDrawingLine(false);
     startPoint.current = [];
     const result = await fetch(
-      'https://a248ddf59bf064e47ab364b64ddc128c-902905521.ap-northeast-1.elb.amazonaws.com/inpaint_image',
+      `${process.env.NEXT_PUBLIC_API_DOMAIN}inpaint_image`,
       {
         method: 'post',
         body: JSON.stringify({

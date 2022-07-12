@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "sudo next dev",
+    "dev": "next dev",
     "build": "next build; yarn build:server",
     "start": "next start",
     "dev:server": "yarn build:server;node server.js",
